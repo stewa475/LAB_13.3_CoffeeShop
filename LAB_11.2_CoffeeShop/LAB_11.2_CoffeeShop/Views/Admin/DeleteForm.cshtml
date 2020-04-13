@@ -1,0 +1,16 @@
+﻿
+@model Product
+
+@{
+    Product prod = (Product)ViewData["Product"];
+}
+<div><a href="/Admin">Admin</a>/Delete Confirmation</div><br />
+<h1>Delete Confirmation</h1><br />
+<h2>Are you sure you want to delete @ViewData["Title"]?</h2>
+<p>______________________________________________________________________________________________________________________________________________________________________</p>
+<p>@prod.Name</p>
+<p>@prod.Category</p>
+<p>@prod.Description</p><br />
+<p>@prod.Price.ToString("C")</p><br />
+<br />
+<div><a href="/Admin/Delete/@prod.Id" class="btn btn-primary">CONFIRM DELETE</a></div>

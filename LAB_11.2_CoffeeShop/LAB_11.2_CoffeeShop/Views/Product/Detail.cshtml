@@ -1,0 +1,12 @@
+﻿
+@{
+    Product prod = (Product)ViewData["Product"];
+}
+<div><a href="/Product">Menu</a>/<a href="/Product/Cat?cat=@prod.Category">@prod.Category</a>/@ViewData["Title"]</div><br />
+<h1>@ViewData["Title"]</h1>
+
+<h2>@prod.Category</h2>
+<p>______________________________________________________________________________________________________________________________________________________________________</p>
+<p>@prod.Description</p>
+<p>@prod.Price.ToString("C")</p>
+

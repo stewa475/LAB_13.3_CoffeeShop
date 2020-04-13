@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewData["Title"] = "Products";
+    List<Product> Products = (List<Product>)ViewData["Products"];
+}
+
+    <div class="text-left">
+
+        <h1 class="display-4">Menu</h1>
+        <br />
+        <h2 class="display-5">Hot Coffees</h2>
+        <p>______________________________________________________________________________________________________________________________________________________________________</p>
+        <ul>
+            @foreach (Product p in Products)
+            {
+                <li><a href="/Product/Cat?cat=@p.Category">@p.Category</a></li>
+            }
+        </ul>
+
+    </div>
+

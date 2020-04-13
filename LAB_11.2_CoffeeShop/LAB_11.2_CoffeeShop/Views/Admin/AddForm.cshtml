@@ -1,0 +1,46 @@
+﻿
+@model Product
+
+@{
+    ViewData["Title"] = "Add New Product";
+}
+
+<div><a href="/Admin">Admin</a>/@ViewData["Title"]</div><br />
+
+<h1>Add New Product</h1>
+
+@{
+    if (ViewData["errorMsg"] != null)
+    {
+        <p><strong>@ViewData["errorMsg"]</strong></p>
+    }
+}
+
+<form asp-controller="Admin" asp-action="Add" method="post">
+    @Html.EditorFor(m => m.Name, new { htmlAttributes = new { placeholder = "Product name", @class = "txtbox" } })<br />
+    @*@Html.LabelFor(m => m.Name)
+        @Html.EditorFor(m => m.Name)*@
+    <br />
+    <fieldset>
+        <legend>Category</legend>
+        <select asp-for="Category">
+
+            @{
+                string[] categories = Product.CategoryList;
+                foreach (string c in categories)
+                {
+                    <option>@c</option>
+                }
+            }
+        </select>
+    </fieldset>
+    <br />
+    @Html.LabelFor(m => m.Description)<br />
+    @Html.TextAreaFor(m => m.Description)<br />
+    <br />
+    @Html.LabelFor(m => m.Price)<br />
+    @Html.EditorFor(m => m.Price, new { htmlAttributes = new { placeholder = "Price", @class = "txtbox" } })<br />
+    <br />
+    <input type="submit" value="Add!" class="btn btn-primary" />
+</form>
+

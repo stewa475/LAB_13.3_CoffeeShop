@@ -1,0 +1,35 @@
+﻿
+@model Product
+
+@{
+    ViewData["Title"] = "Edit Product";
+}
+
+<div><a href="/Admin">Admin</a>/@ViewData["Title"]</div><br />
+
+<h1>Edit Product</h1>
+
+@{
+    if (ViewData["errorMsg"] != null)
+    {
+        <p><strong>@ViewData["errorMsg"]</strong></p>
+    }
+}
+
+<form asp-controller="Admin" asp-action="Edit" method="post">
+    @*@Html.HiddenFor(m => m.Id)*@
+    @Html.LabelFor(m => m.Name)<br />
+    @Html.EditorFor(m => m.Name, new { htmlAttributes = new { @class = "txtbox" } })<br />
+    <br />
+    @Html.LabelFor(m => m.Category)<br />
+    @Html.EditorFor(m => m.Category, new { htmlAttributes = new { @class = "txtbox" } })<br />
+    <br />
+    @Html.LabelFor(m => m.Description)<br />
+    @Html.TextAreaFor(m => m.Description)<br />
+    <br />
+    @Html.LabelFor(m => m.Price)<br />
+    @Html.EditorFor(m => m.Price, new { htmlAttributes = new { @class = "txtbox" } })<br />
+    <br />
+    <input type="submit" value="Save Changes" class="btn btn-primary" />
+</form>
+
